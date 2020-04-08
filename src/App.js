@@ -1,12 +1,11 @@
 import React from 'react'
+import TweetContainer from './Components/TweetContainer'
 import './App.css'
 
-function App () {
-  return (
-    <div>
-      <h1>Hello there</h1>
-    </div>
-  )
-}
+const App = () => (
+  <div className='background'>
+    <TweetContainer />
+  </div>
+)
 
 export default App
