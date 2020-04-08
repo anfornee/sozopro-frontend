@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import TweetButton from './TweetButton'
+import LoadingButton from './LoadingButton'
 
 const TweetField = props => {
   const [input, setInput] = useState('')
+  const [isSending, setIsSending] = useState(false)
 
   const handleTweet = e => {
     e.preventDefault()
-    axios.post('http://localhost:3001/new', { status: input })
-      .then(res => {
-        setInput('')
-      })
-      .catch(err => window.alert(err))
+    if (input) {
+      setIsSending(true)
+      axios.post('http://localhost:3002/new', { status: input })
+        .then(res => {
+          setTimeout(() => {
+            setInput('')
+            setIsSending(false)
+          }, 2000)
+        })
+        .catch(err => window.alert(err))
+    } else {
+      window.alert("Uh...awkward. There isn't anything to send")
+    }
   }
 
   return (
@@ -20,7 +30,7 @@ const TweetField = props => {
         className='tweet-field'
         type='text'
         value={input}
-        placeholder='Say something'
+        placeholder="How's it going?"
         onChange={e => {
           if (input.length < 280) {
             setInput(e.target.value)
@@ -34,7 +44,9 @@ const TweetField = props => {
         }}
       />
       <p className='char-count'>{input.length}/280</p>
-      <TweetButton handleTweet={handleTweet} />
+      {
+        isSending ? <LoadingButton /> : <TweetButton handleTweet={handleTweet} />
+      }
     </div>
   )
 }
