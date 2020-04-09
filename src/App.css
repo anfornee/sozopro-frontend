@@ -49,6 +49,44 @@
   border-bottom-left-radius: 3em;
 }
 
+.container-title .title-design-element-left {
+  animation: title-container-to-left .5s forwards;
+}
+
+.container-title .title-design-element-right{
+  animation: title-container-to-right .5s forwards;
+}
+
+@keyframes title-container-to-left {
+  0% {
+    width: 32%;
+    right: 0;
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+  }
+
+  100% {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@keyframes title-container-to-right {
+  0% {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  100% {
+    width: 32%;
+    right: 0;
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+  }
+}
+
 .tweet-field-container {
   width: 100%;
   display: flex;
@@ -64,9 +102,9 @@
   margin-bottom: .5em;
   resize: none;
   border-radius: 5px;
-  border: 2px solid rgba(0,0,0,.1);
+  border: 2px solid rgba(0, 0, 0, .1);
   font-size: 1em;
-  background: rgba(0,0,0,.05);
+  background: rgba(0, 0, 0, .05);
 }
 
 .char-count {
@@ -77,8 +115,8 @@
 }
 
 .tweet-button {
-  padding: .5em 1em;
-  margin: .5em 0 1.5em;
+  padding: .75em 2em;
+  margin: .5em 0 1.25em;
   border: none;
   border-radius: 25px;
   font-size: 1em;
@@ -86,7 +124,7 @@
   color: #fff;
   font-weight: bold;
   position: relative;
-  box-shadow: 1px 2px 2px 1px rgba(0,0,0,.7);
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, .7);
   transition: .2s
 }
 
@@ -96,7 +134,7 @@
 
 .tweet-button:active {
   top: 1px;
-  box-shadow: 1px 2px 1px 1px rgba(0,0,0,.7);
+  box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, .7);
 }
 
 .loading-button-container {
@@ -104,8 +142,8 @@
 }
 
 .hide-button {
-  padding: .5em 1em;
-  margin: .5em 0 1.5em;
+  padding: .75em 2em;
+  margin: .5em 0 1.25em;
   border: none;
   border-radius: 25px;
   font-size: 1em;
@@ -113,16 +151,27 @@
   color: #fff;
   font-weight: bold;
   position: relative;
-  box-shadow: 1px 2px 2px 1px rgba(0,0,0,.7);
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, .7);
   animation-name: hide;
   animation-duration: 2s;
 }
 
 @keyframes hide {
-  0% {opacity: 1;}
-  20% {opacity: 0;}
-  80% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .tweet-animation {
@@ -140,9 +189,23 @@
 }
 
 @keyframes show {
-  0% {opacity: 0;}
-  20% {opacity: 0;}
-  21% {opacity: 0;}
-  70% {opacity: 1;}
-  80% {opacity: 0;}
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  21% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
 }
