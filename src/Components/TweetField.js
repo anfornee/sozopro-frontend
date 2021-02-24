@@ -11,7 +11,7 @@ const TweetField = props => {
     e.preventDefault()
     if (input) {
       setIsSending(true)
-      axios.post('http://localhost:3002/new', { status: input })
+      axios.post('http://localhost:3030/new', { status: input })
         .then(res => {
           setTimeout(() => {
             setInput('')
